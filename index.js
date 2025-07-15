@@ -493,6 +493,12 @@ app.get('/image.:ext', (req, res) => {
     res.send(buffer);
     //sauvegarder l'image pour debug
 })
+app.get('/', (req, res) => {
+    res.send(`
+        <h1>look the github for more info</h1>
+        <p><a href="https://github.com/micuit-cuit/renderServer">Github</a></p>
+        `);
+});
 function verifySignature(params, signature) {
 	const paramsCopy = { ...params };
 	delete paramsCopy.signature;
@@ -504,7 +510,7 @@ function verifySignature(params, signature) {
 }
 
 
-app.listen(port, () => {
+app.listen(port,"0.0.0.0", () => {
     console.log(`Server running at http://localhost:${port}`);
 });
 
